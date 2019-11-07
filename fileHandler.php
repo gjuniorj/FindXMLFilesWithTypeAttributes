@@ -1,7 +1,8 @@
 <?php
 
     $extension_to_search = ".xml";
-    $directory_to_search = '/home/type_file_path_here/Downloads/ojs-2.4.8-2';
+
+    $directory_to_search = getFilePath();
 
     $elementsArray = searchFileWithExtension($directory_to_search,$extension_to_search, 'getXMLTypeAttribute');
     createFile();
@@ -149,5 +150,24 @@
         //Creates file
         $fp = fopen('file.txt','w+');
         fclose($fp);
+
+    }
+
+/**
+ * Gets a valid path from user
+ * @return string
+ */
+    function getFilePath(){
+
+        $path = readline('Input directory path to search for files: ');
+
+        //Verifies if path is a real directory
+        while ( !(is_dir($path)) ){
+            echo "Type a valid directory path.";
+
+            $path = readline('Input directory path to search for files: ');
+        }
+
+        return $path;
 
     }
