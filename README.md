@@ -1,2 +1,2 @@
-# FindXMLFilesWithTypeAttributes
-Project for finding XML files containing field tags with type attributes.
+# FindInFile
+Project to list the XML files containing type attributes.
